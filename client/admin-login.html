@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Login — Unibotics</title>
+  <meta name="description" content="Admin login and registration for Unibotics staff." />
+  <link rel="icon" type="image/png" href="/__l5e/assets-v1/5f5e5a69-e5b9-4923-acd3-74940a9113bc/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="announce">🛡️ Admin portal — restricted access. <a href="login.html">User login</a></div>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><img class="brand-logo"
+          src="https://id-preview--d47c458f-9325-443e-842e-49d58c380300.lovable.app/__l5e/assets-v1/5f5e5a69-e5b9-4923-acd3-74940a9113bc/logo.png"
+          alt="Unibotics"><span class="brand-name">Unibotics</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="facilities.html">Facilities</a><a
+          href="services.html">Services</a><a href="merchandise.html">Merchandise</a><a
+          href="policies.html">Policies</a><a href="join.html">Join Us</a>
+          <a href="login.html">Login</a>
+      </nav>
+      <a class="btn btn-cta" href="contact.html">Get in touch</a>
+      <button class="menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg></button>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a><a href="about.html">About</a>  
+      <a href="courses.html">Courses</a>
+      <a href="facilities.html">Facilities</a><a
+        href="services.html">Services</a><a href="merchandise.html">Merchandise</a><a
+        href="policies.html">Policies</a><a href="join.html">Join Us</a><a href="contact.html">Contact</a><a
+        href="login.html">Login</a><a href="admin-login.html">Admin</a>
+    </div>
+  </header>
+
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <h1>Admin Portal</h1>
+      <p class="sub">Sign in or register as a Unibotics administrator.</p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-target="admin-login">Admin Login</button>
+        <button class="auth-tab" data-target="admin-register">Admin Register</button>
+      </div>
+
+      <div data-pane="admin-login">
+        <form data-auth="admin-login" data-store="unibotics_admins">
+          <div class="field"><label>Admin email</label><input name="email" type="email" required></div>
+          <div class="field"><label>Password</label><input name="password" type="password" required></div>
+          <div class="field"><label>Admin code</label><input name="admin_code" required
+              placeholder="Issued by Unibotics"></div>
+          <button class="btn" style="width:100%;justify-content:center" type="submit">Sign in as Admin</button>
+        </form>
+        <p class="auth-foot">Not an admin? <a href="login.html">User login →</a></p>
+      </div>
+
+      <div data-pane="admin-register" class="hidden">
+  <div id="admin-request-logged-out" class="hidden" style="text-align:center;padding:24px 8px">
+    <p style="font-weight:700;margin-bottom:8px">Create an account first.</p>
+    <p class="auth-foot" style="margin-top:0">You need to register or log in as a regular user first. Your account will have regular access until the admin approves your admin request.</p>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px">
+      <a class="btn" href="login.html">Log in / Register</a>
+    </div>
+  </div>
+
+  <form data-auth="admin-request" id="admin-request-form">
+    <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px">Fill in your details. Your request will be reviewed by the site owner — you'll have regular account access in the meantime.</p>
+    <div class="field"><label>Full name</label><input name="name" id="ar-name" required></div>
+    <div class="field"><label>Email</label><input name="email" id="ar-email" type="email" required></div>
+    <div class="field"><label>Password</label><input name="password" id="ar-password" type="password" required minlength="6"></div>
+    <div class="field"><label>Organization (optional)</label><input name="organization"></div>
+    <div class="field"><label>Why do you need admin access?</label>
+      <textarea name="reason" required placeholder="Explain your role and why you need admin access to Unibotics..."></textarea>
+    </div>
+    <button class="btn" style="width:100%;justify-content:center" type="submit">Submit admin request</button>
+  </form>
+  <p class="auth-foot" style="margin-top:14px"><small>Admin access requires approval from the site owner. You'll receive regular user access immediately upon submitting.</small></p>
+</div>
+
+  <form data-auth="admin-request" id="admin-request-form">
+    <div class="field"><label>Organization (optional)</label><input name="organization"></div>
+    <div class="field"><label>Why do you need admin access?</label>
+      <textarea name="reason" required placeholder="Explain your role and why you need admin access to Unibotics..."></textarea>
+    </div>
+    <button class="btn" style="width:100%;justify-content:center" type="submit">Request admin access</button>
+  </form>
+  <p class="auth-foot" style="margin-top:14px"><small>Your request will be reviewed by the site owner. You'll keep your regular account access in the meantime.</small></p>
+</div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img
+          src="https://id-preview--d47c458f-9325-443e-842e-49d58c380300.lovable.app/__l5e/assets-v1/5f5e5a69-e5b9-4923-acd3-74940a9113bc/logo.png"
+          alt="Unibotics" style="height:56px;width:auto;margin-bottom:12px;border-radius:8px" />
+        <h3 style="font-family:'Plus Jakarta Sans';font-size:1.15rem;font-weight:800">Unibotics Services Pvt. Ltd.</h3>
+        <p>Your trusted partner in building innovation hubs across schools and institutes.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="merchandise.html">Merchandise</a></li>
+          <li><a href="policies.html">Policies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Account</h4>
+        <ul>
+          <li><a href="login.html">User Login</a></li>
+          <li><a href="admin-login.html">Admin Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:directorunibotics@gmail.com">directorunibotics@gmail.com</a></li>
+          <li><a href="tel:+919017902010">+91-9017902010</a></li>
+          <li> <i class="fab fa-youtube"></i><a href="https://youtube.com/@unibotics?si=JK3R_acq9YmHNlws"
+              target="_blank">
+              Subscribe on YouTube
+            </a></li>
+          <li>
+            <i class="fab fa-whatsapp"></i>
+            <a href="https://whatsapp.com/channel/0029Vb2u7umATRSrgOSiKG3G target="_blank">
+              Join WhatsApp Channel 
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Unibotics Services Pvt. Ltd. All rights reserved.</div>
+  </footer>
+  <div class="toast" id="toast"></div>
+  <script src="main.js"></script>
+</body>
+
+</html>

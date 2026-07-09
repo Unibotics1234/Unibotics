@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Course — Unibotics</title>
+  <link rel="icon" type="image/png" href="/__l5e/assets-v1/5f5e5a69-e5b9-4923-acd3-74940a9113bc/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .cv-layout{display:grid;grid-template-columns:300px 1fr;gap:32px;align-items:start;margin-top:32px}
+    @media(max-width:860px){.cv-layout{grid-template-columns:1fr}}
+    .cv-sidebar{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:var(--shadow-card);position:sticky;top:100px}
+    .cv-sidebar h3{font-family:'Plus Jakarta Sans';font-size:1rem;margin:0 0 16px}
+    .cv-module-title{font-weight:800;font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:10px 0 6px;margin-top:8px;border-top:1px solid var(--border)}
+    .cv-module-title:first-child{border-top:0;margin-top:0;padding-top:0}
+    .cv-lesson-link{display:block;padding:8px 10px;border-radius:8px;font-size:.88rem;font-weight:600;cursor:pointer;color:var(--fg);transition:background .15s}
+    .cv-lesson-link:hover{background:var(--secondary)}
+    .cv-lesson-link.active{background:var(--gradient-primary);color:#fff}
+    .cv-content{background:#fff;border:1px solid var(--border);border-radius:18px;padding:36px;box-shadow:var(--shadow-card);min-height:400px}
+    .cv-content h2{font-size:1.6rem;margin-bottom:20px}
+    .cv-lesson-body{line-height:1.75;white-space:pre-wrap;color:var(--fg)}
+    .cv-locked{text-align:center;padding:60px 20px}
+    .cv-locked h2{font-size:1.5rem;margin-bottom:12px}
+    .cv-locked p{color:var(--muted);max-width:440px;margin:0 auto 24px}
+    .cv-placeholder{color:var(--muted);text-align:center;padding:60px 20px}
+  </style>
+</head>
+<body>
+  <div class="announce">🚀 Empowering Innovation across Schools, ITIs, Diplomas & Engineering Institutes — <a href="contact.html">Partner with us</a></div>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="https://id-preview--d47c458f-9325-443e-842e-49d58c380300.lovable.app/__l5e/assets-v1/5f5e5a69-e5b9-4923-acd3-74940a9113bc/logo.png" alt="Unibotics">
+        <span class="brand-name">Unibotics</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="facilities.html">Facilities</a>
+        <a href="services.html">Services</a>
+        <a href="merchandise.html">Merchandise</a>
+        <a href="policies.html">Policies</a>
+        <a href="join.html">Join Us</a>
+        <a href="login.html">Login</a>
+      </nav>
+      <a class="btn btn-cta" href="contact.html">Get in touch</a>
+      <button class="menu-btn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="courses.html">Courses</a>
+      <a href="account.html">My Account</a>
+      <a href="login.html">Login</a>
+      <a href="admin-login.html">Admin</a>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <p class="eyebrow">Course</p>
+      <h1 id="course-title">Loading...</h1>
+      <p class="lead" id="course-meta"></p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="container">
+
+      <!-- LOCKED STATE -->
+      <div id="cv-locked" class="hidden">
+        <div class="card cv-locked">
+          <p style="font-size:2.5rem;margin-bottom:8px">🔒</p>
+          <h2>Enrollment pending approval</h2>
+          <p>You're enrolled in this course but your enrollment hasn't been confirmed yet. The admin will review and confirm it shortly — once confirmed, you'll have full access to all lessons here.</p>
+          <a class="btn" href="account.html">Back to my account</a>
+        </div>
+      </div>
+
+      <!-- NOT ENROLLED STATE -->
+      <div id="cv-not-enrolled" class="hidden">
+        <div class="card cv-locked">
+          <p style="font-size:2.5rem;margin-bottom:8px">📚</p>
+          <h2>You're not enrolled in this course</h2>
+          <p>Enroll in this course from the courses page to access its content.</p>
+          <a class="btn" href="courses.html">Browse courses</a>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT (confirmed enrollment only) -->
+      <div id="cv-main" class="hidden">
+        <div class="cv-layout">
+          <aside class="cv-sidebar">
+            <h3>Course curriculum</h3>
+            <div id="cv-sidebar-content"></div>
+          </aside>
+          <main class="cv-content">
+            <div id="cv-lesson-display">
+              <div class="cv-placeholder">
+                <p style="font-size:1.5rem;margin-bottom:8px">👈</p>
+                <p>Select a lesson from the sidebar to start learning.</p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="https://id-preview--d47c458f-9325-443e-842e-49d58c380300.lovable.app/__l5e/assets-v1/5f5e5a69-e5b9-4923-acd3-74940a9113bc/logo.png" alt="Unibotics" style="height:56px;width:auto;margin-bottom:12px;border-radius:8px"/>
+        <h3 style="font-family:'Plus Jakarta Sans';font-size:1.15rem;font-weight:800">Unibotics Services Pvt. Ltd.</h3>
+        <p>Your trusted partner in building innovation hubs across schools and institutes.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="account.html">My Account</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Unibotics Services Pvt. Ltd. All rights reserved.</div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="main.js"></script>
+  <script src="course-view.js"></script>
+</body>
+</html>

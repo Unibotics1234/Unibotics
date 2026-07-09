@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Unibotics</title>
+  <meta name="description" content="Login or register for your Unibotics account — solo or team." />
+  <link rel="icon" type="image/png" href="/__l5e/assets-v1/5f5e5a69-e5b9-4923-acd3-74940a9113bc/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="announce">🚀 Empowering Innovation across Schools, ITIs, Diplomas & Engineering Institutes — <a
+      href="contact.html">Partner with us</a></div>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><img class="brand-logo"
+          src="https://id-preview--d47c458f-9325-443e-842e-49d58c380300.lovable.app/__l5e/assets-v1/5f5e5a69-e5b9-4923-acd3-74940a9113bc/logo.png"
+          alt="Unibotics"><span class="brand-name">Unibotics</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a><a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="facilities.html">Facilities</a><a
+          href="services.html">Services</a><a href="merchandise.html">Merchandise</a><a
+          href="policies.html">Policies</a><a href="join.html">Join Us</a>
+          <a
+          href="login.html">Login</a>
+      </nav>
+      <a class="btn btn-cta" href="contact.html">Get in touch</a>
+      <button class="menu-btn" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg></button>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="courses.html">Courses</a>
+
+      <a href="facilities.html">Facilities</a>
+
+      <a href="services.html">Services</a>
+      <a href="merchandise.html">Merchandise</a>
+      <a href="policies.html">Policies</a>
+      <a href="join.html">Join Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="admin-login.html">Admin</a>
+    </div>
+  </header>
+
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <h1>Welcome to Unibotics</h1>
+      <p class="sub">Login or create an account to access programs and resources.</p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-target="login">Login</button>
+        <button class="auth-tab" data-target="register">Register</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div data-pane="login">
+        <form data-auth="user-login" data-store="unibotics_users">
+          <div class="field"><label>Email</label><input name="email" type="email" required></div>
+          <div class="field"><label>Password</label><input name="password" type="password" required></div>
+          <button class="btn" style="width:100%;justify-content:center" type="submit">Sign in</button>
+        </form>
+        <p class="auth-foot"> <a href="admin-login.html">Admin login →</a></p>
+      </div>
+
+      <!-- REGISTER -->
+      <div data-pane="register" class="hidden">
+        <div class="toggle-pill">
+          <button class="active" data-toggle="solo">Solo</button>
+          <button data-toggle="team">Team</button>
+        </div>
+
+        <!-- SOLO -->
+        <form data-auth="user-register-solo" data-store="unibotics_users" data-toggle-pane="solo">
+          <div class="field"><label>Full name</label><input name="name" required></div>
+          <div class="field"><label>Email</label><input name="email" type="email" required></div>
+          <div class="field"><label>Phone</label><input name="phone" type="tel" required></div>
+          <div class="field"><label>Password</label><input name="password" type="password" required minlength="6"></div>
+          <div class="field"><label>Confirm password</label><input name="confirm" type="password" required
+              minlength="6"></div>
+          <button class="btn" style="width:100%;justify-content:center" type="submit">Create solo account</button>
+        </form>
+
+        <!-- TEAM -->
+        <form data-auth="user-register-team" data-store="unibotics_users" data-toggle-pane="team" class="hidden">
+          <div class="field"><label>Team name</label><input name="team_name" required></div>
+          <div class="field"><label>Team leader name</label><input name="leader_name" required></div>
+          <div class="field"><label>Leader email</label><input name="email" type="email" required></div>
+          <div class="field"><label>Phone</label><input name="phone" type="tel" required></div>
+          <div class="field"><label>Institution</label><input name="institution" required></div>
+          <div class="field"><label>Number of members</label><input name="members" type="number" min="2" required></div>
+          <div class="field"><label>Password</label><input name="password" type="password" required minlength="6"></div>
+          <div class="field"><label>Confirm password</label><input name="confirm" type="password" required
+              minlength="6"></div>
+          <button class="btn" style="width:100%;justify-content:center" type="submit">Create team account</button>
+        </form>
+
+        <p class="auth-foot">Already have an account? <a href="#"
+            onclick="document.querySelector('.auth-tab[data-target=login]').click();return false;">Sign in</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img
+          src="https://id-preview--d47c458f-9325-443e-842e-49d58c380300.lovable.app/__l5e/assets-v1/5f5e5a69-e5b9-4923-acd3-74940a9113bc/logo.png"
+          alt="Unibotics" style="height:56px;width:auto;margin-bottom:12px;border-radius:8px" />
+        <h3 style="font-family:'Plus Jakarta Sans';font-size:1.15rem;font-weight:800">Unibotics Services Pvt. Ltd.</h3>
+        <p>Your trusted partner in building innovation hubs across schools and institutes.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="merchandise.html">Merchandise</a></li>
+          <li><a href="policies.html">Policies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Account</h4>
+        <ul>
+          <li><a href="login.html">User Login</a></li>
+          <li><a href="admin-login.html">Admin Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:directorunibotics@gmail.com">directorunibotics@gmail.com</a></li>
+          <li><a href="tel:+919017902010">+91-9017902010</a></li>
+          <li> <i class="fab fa-youtube"></i><a href="https://youtube.com/@unibotics?si=JK3R_acq9YmHNlws"
+              target="_blank">
+              Subscribe on YouTube
+            </a></li>
+          <li>
+            <i class="fab fa-whatsapp"></i>
+            <a href="https://whatsapp.com/channel/0029Vb2u7umATRSrgOSiKG3G target="_blank">
+              Join WhatsApp Channel 
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Unibotics Services Pvt. Ltd. All rights reserved.</div>
+  </footer>
+  <div class="toast" id="toast"></div>
+  <script src="main.js"></script>
+</body>
+
+</html>
