@@ -13,9 +13,25 @@ const app = express();
 app.use(helmet({ contentSecurityPolicy: false }));
 
 app.use(cors({
-  origin: process.env.CLIENT_ORIGIN || '*',
+  origin: function(origin, callback) {
+    const allowed = [
+      'http://localhost:5000',
+      'http://localhost:3000',
+      process.env.FRONTEND_URL  // your Vercel URL goes here
+    ].filter(Boolean);
+
+    // Allow requests with no origin (mobile apps, Postman, curl)
+    if (!origin) return callback(null, true);
+
+    if (allowed.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
 app.use(morgan('dev'));
@@ -61,11 +77,10 @@ app.use('/api/modules',         require('./routes/modules').standalone);
 app.use('/api/lessons',         require('./routes/lessons'));
 
 // ── Serve Frontend ───────────────────────────────────────────────────────────
-app.use(express.static(path.join(__dirname, '..', 'client')));
-
-app.get('/*splat', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
+app.get('/', (req, res) => {
+  res.json({ success: true, message: 'Unibotics API is running.' });
 });
+
 
 // ── Global Error Handler ─────────────────────────────────────────────────────
 app.use((err, req, res, next) => {
