@@ -2,7 +2,9 @@
 //  Unibotics — main.js  (API-connected version)
 // ════════════════════════════════════════════════════════════════════════════
 
-const API = '';
+function getApiBase() {
+  return window.UNIBOTICS_API_URL || '';
+}
 
 // ── Token helpers ─────────────────────────────────────────────────────────────
 function getToken()   { return sessionStorage.getItem('ub_token'); }
@@ -19,10 +21,11 @@ async function apiFetch(endpoint, options = {}) {
   const headers = { 'Content-Type': 'application/json', ...options.headers };
   const token = getToken();
   if (token) headers['Authorization'] = `Bearer ${token}`;
-  const res  = await fetch(API + endpoint, { ...options, headers });
+  const res  = await fetch(getApiBase() + endpoint, { ...options, headers });
   const data = await res.json();
   return { ok: res.ok, status: res.status, data };
 }
+
 
 // ── Toast helper ──────────────────────────────────────────────────────────────
 function showToast(msg) {
